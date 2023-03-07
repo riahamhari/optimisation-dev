@@ -25,11 +25,17 @@ const searchResultsUpdated = () => {
         // Find the discount message element
         const discountMessage = result.querySelector('.ResultListItemV2__discountInfo');
 
-
+        // find separators 
+        const separators = document.querySelectorAll(".ResultListItemV2__seperator")
         // If discount message element exists and the discount is less than 200
         if (discountMessage && discountMessage.textContent.includes("£") && parseInt(discountMessage.textContent.split("£")[1]) < 200) {
 
             discountMessage.style.display = 'none';
+
+            // remove all separators
+            separators.forEach(sep => {
+                sep.innerText = ''
+            })
 
 
         }
