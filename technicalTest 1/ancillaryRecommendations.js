@@ -45,10 +45,22 @@ const luggageCard = document.querySelectorAll('.cards__third')
 const cardAncillaryWrapper = document.querySelectorAll('.cards__horizontalAncillaryWrapper')
 
 const frequentlyBookedLabel1 = createFrequentlyBookedLabel(copy);
-seatMapWrapper.insertBefore(frequentlyBookedLabel1, selectedSeatContainer);
+
 
 const frequentlyBookedLabel2 = createFrequentlyBookedLabel(copy);
-luggageCard[1].insertBefore(frequentlyBookedLabel2, cardAncillaryWrapper[1]);
+
 
 const frequentlyBookedLabel3 = createFrequentlyBookedLabel(copy);
-luggageCard[4].insertBefore(frequentlyBookedLabel3, cardAncillaryWrapper[4]);
+
+
+if (ancillaryRecommendation === 'Select your seats') {
+    seatMapWrapper.insertBefore(frequentlyBookedLabel1, selectedSeatContainer);
+    const h3Element = seatMapWrapper.querySelector('h3')
+    h3Element.innerText = ancillaryRecommendation
+} else if (ancillaryRecommendation === '20kg luggage') {
+    luggageCard[4].insertBefore(frequentlyBookedLabel3, cardAncillaryWrapper[4]);
+    luggageCard[1].insertBefore(frequentlyBookedLabel2, cardAncillaryWrapper[1]);
+} else if (ancillaryRecommendation === '25kg Luggage') {
+    luggageCard[2].insertBefore(frequentlyBookedLabel3, cardAncillaryWrapper[2]);
+    luggageCard[5].insertBefore(frequentlyBookedLabel2, cardAncillaryWrapper[5]);
+}
